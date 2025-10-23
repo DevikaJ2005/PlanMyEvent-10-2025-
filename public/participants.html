@@ -1,0 +1,144 @@
+<!--participants.html-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Participants — Plan My Event</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .event-card {
+      background: #fff;
+      padding: 18px;
+      margin-bottom: 16px;
+      border-radius: 10px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    }
+    .event-card h3 {
+      margin: 0;
+      color: #2f855a;
+    }
+    .event-card p {
+      margin: 6px 0;
+      font-size: 14px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with Logo + Nav -->
+  <header class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <!-- Logo -->
+      <div class="site-brand" style="display:flex;align-items:center;gap:10px;">
+        <img src="images/logo.jpg" alt="Plan My Event Logo" style="height:70px;width:auto;">
+        <div style="font-size:20px;font-weight:800;color:#2f855a;">
+          Plan My Event
+        </div>
+      </div>
+      <!-- Nav -->
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="create.html">Create Event</a>
+        <a href="created-events.html">My Events</a>
+        <a href="participants.html">Participants</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="logout.html">Logout</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container" id="participantList" style="margin-top:30px;">
+    <p>Loading participant registrations...</p>
+  </main>
+  <!-- Footer -->
+ <footer class="container">
+   <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;">
+    
+   </div>
+   <footer>
+   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(221px,1fr));gap:70px;max-width:1224px;margin:0 auto;">
+
+
+     <!-- Contact Info -->
+     <div>
+       <h4>📍 Contact Us</h4>
+       <p style="color:#555;line-height:1.6;">
+         <strong>Plan My Event</strong><br>
+         planmyevent@gmail.com<br>
+       </p>
+     </div>
+
+
+     <!-- Our Company -->
+     <div>
+       <h4>🏢 Our Company</h4>
+       <ul>
+         <li><a href="about.html">About Us</a></li>
+       </ul>
+     </div>
+
+
+     <!-- Resources -->
+     <div>
+       <h4>📚 Resources</h4>
+       <ul>
+         <li><a href="events.html">Live Events</a></li>
+       </ul>
+     </div>
+
+
+     <!-- Call to Action -->
+     <div>
+       <h4>📣 Let's Connect</h4>
+       <p style="color:#555;">Ready to plan your next sustainable event?</p>
+       <a href="contact.html" style="display:inline-block;margin-top:10px;padding:10px 20px;background:#2f855a;color:white;border-radius:8px;text-decoration:none;font-weight:600;">Contact Us Today!</a>
+     </div>
+   </div>
+
+
+   <!-- Bottom Bar -->
+   <div style="margin-top:40px;text-align:center;font-size:0.9rem;color:#777;">
+     <p>© <strong>Plan My Event</strong> — All Rights Reserved</p>
+     <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+     <p>Follow us: Facebook | Twitter | LinkedIn | Instagram</p>
+   </div>
+ </footer>
+
+  <!-- Script -->
+  <!-- Replace your <script> block with this -->
+<script>
+    async function loadParticipants() {
+      try {
+        const res = await fetch('/api/registrations/by-creator');
+        const registrations = await res.json();
+        const list = document.getElementById("participantList");
+  
+        if (!Array.isArray(registrations) || registrations.length === 0) {
+          list.innerHTML = "<p>No participant registrations found for your events.</p>";
+          return;
+        }
+  
+        list.innerHTML = registrations.map(r => `
+          <div class="event-card">
+            <h3>${r.eventName}</h3>
+            <p><strong>Name:</strong> ${r.studentName}</p>
+            <p><strong>Email:</strong> ${r.email}</p>
+            <p><strong>College:</strong> ${r.college}</p>
+            <p><strong>Year:</strong> ${r.year}</p>
+            ${r.message ? `<p><strong>Message:</strong> ${r.message}</p>` : ""}
+          </div>
+        `).join("");
+      } catch (err) {
+        document.getElementById("participantList").innerHTML =
+          "<p style='color:red;'>Failed to load registrations.</p>";
+        console.error("Error loading participants:", err);
+      }
+    }
+  
+    loadParticipants();
+  </script>
+  </body>
+  </html>

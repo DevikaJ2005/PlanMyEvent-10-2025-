@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sign Up — Plan My Event</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .form-section {
+      padding: 60px 0;
+      text-align: center;
+    }
+    .form-section h2 {
+      color: #2f855a;
+      margin-bottom: 20px;
+    }
+    .form-card {
+      max-width: 400px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+    }
+    .form-card label {
+      display: block;
+      margin: 12px 0 6px;
+      text-align: left;
+      font-weight: 600;
+      color: #333;
+    }
+    .form-card input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .form-card button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #2f855a;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .form-card button:hover {
+      background-color: #276749;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <div class="site-brand" style="display:flex;align-items:center;gap:10px;">
+        <img src="images/logo.jpg" alt="Plan My Event Logo" style="height:50px;width:auto;">
+        <div style="font-size:20px;font-weight:600;color:#2f855a;">Plan My Event</div>
+      </div>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="signup.html">Sign-Up</a>
+        <a href="login.html">Log-In</a>
+        <a href="logout.html">Logout</a>
+        
+      </nav>
+    </div>
+  </header>
+
+  <!-- Sign-Up Form -->
+  <main class="container">
+    <section class="form-section">
+      <h2>Create Your Account</h2>
+      <form class="form-card" method="POST" action="/api/signup">
+        <label>Name</label>
+        <input type="text" name="name" required>
+        <label>Email</label>
+        <input type="email" name="email" required>
+        <label>Password</label>
+        <input type="password" name="password" required>
+        <button type="submit">Sign Up</button>
+      </form>
+    </section>
+  </main>
+  <!-- Footer -->
+ <footer class="container">
+   <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;">
+    
+   </div>
+   <footer>
+   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(221px,1fr));gap:70px;max-width:1224px;margin:0 auto;">
+
+
+     <!-- Contact Info -->
+     <div>
+       <h4>📍 Contact Us</h4>
+       <p style="color:#555;line-height:1.6;">
+         <strong>Plan My Event</strong><br>
+         planmyevent@gmail.com<br>
+       </p>
+     </div>
+
+
+     <!-- Our Company -->
+     <div>
+       <h4>🏢 Our Company</h4>
+       <ul>
+         <li><a href="about.html">About Us</a></li>
+       </ul>
+     </div>
+
+
+     <!-- Resources -->
+     <div>
+       <h4>📚 Resources</h4>
+       <ul>
+         <li><a href="events.html">Live Events</a></li>
+       </ul>
+     </div>
+
+
+     <!-- Call to Action -->
+     <div>
+       <h4>📣 Let's Connect</h4>
+       <p style="color:#555;">Ready to plan your next sustainable event?</p>
+       <a href="contact.html" style="display:inline-block;margin-top:10px;padding:10px 20px;background:#2f855a;color:white;border-radius:8px;text-decoration:none;font-weight:600;">Contact Us Today!</a>
+     </div>
+   </div>
+
+
+   <!-- Bottom Bar -->
+   <div style="margin-top:40px;text-align:center;font-size:0.9rem;color:#777;">
+     <p>© <strong>Plan My Event</strong> — All Rights Reserved</p>
+     <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+     <p>Follow us: Facebook | Twitter | LinkedIn | Instagram</p>
+   </div>
+ </footer>
+</body>
+</html>

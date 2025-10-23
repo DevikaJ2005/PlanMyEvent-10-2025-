@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width,initial-scale=1" />
+ <title>About —Plan My Event</title>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="css/styles.css">
+</head>
+<style>
+ .eco-quote-carousel p {
+ transition: opacity 0.5s ease-in-out;
+}
+
+
+
+
+</style>
+<body>
+ <header class="container">
+   <div style="display:flex;justify-content:space-between;align-items:center;">
+     <div class="site-brand" style="display:flex;align-items:center;gap:10px;">
+       <img src="images/logo.jpg" alt="Plan My Event Logo" style="height:50px;width:auto;">
+       <div style="font-size:20px;font-weight:600;color:#2f855a;">
+         Plan My Event
+       </div>
+     </div>
+     <nav class="site-nav" aria-label="Main navigation">
+       <a href="index.html">Home</a>
+       <a href="about.html">About</a>
+       <a href="contact.html">Contact Us</a> 
+       <a href="logout.html">Logout</a>
+      
+     </nav>
+   </div>
+ </header>
+ <main class="container" style="padding:26px 0;">
+   <h2 style="text-align:center;color:#2f855a;margin-top:30px;">About Us</h2>
+   <!-- Eco-Friendly Highlight Section -->
+<section style="margin-top:40px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:30px;max-width:1200px;margin-left:auto;margin-right:auto;padding:20px;">
+  <!-- Left: Image -->
+ <div style="flex:1;min-width:280px;text-align:center;">
+   <!-- Eco Tip Quote Carousel -->
+<div class="eco-quote-carousel" style="margin:60px auto 40px;max-width:700px;text-align:center;padding:20px;background-color:#f6fff8;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.05);">
+ <p id="eco-quote" style="font-size:1.1rem;color:#2f855a;font-weight:600;">“Small changes make a big impact—start with one green habit.”</p>
+</div>
+<script>
+ const ecoQuotes = [
+   "“Small changes make a big impact—start with one green habit.”",
+   "“Digital invites save trees—go paperless and stylish.”",
+   "“Outdoor events reduce energy use and boost natural vibes.”",
+   "“Reusable decor = zero waste + maximum creativity.”",
+   "“Every sustainable choice is a vote for a better campus.”"
+ ];
+
+
+ let ecoIndex = 0;
+ const ecoQuote = document.getElementById('eco-quote');
+
+
+ setInterval(() => {
+   ecoQuote.style.opacity = 0;
+   setTimeout(() => {
+     ecoIndex = (ecoIndex + 1) % ecoQuotes.length;
+     ecoQuote.textContent = ecoQuotes[ecoIndex];
+     ecoQuote.style.opacity = 1;
+   }, 500);
+ }, 5000); // 5 seconds
+</script>
+
+
+ </div>
+
+
+ <!-- Right: Text -->
+<!-- Sustainability Quote Carousel -->
+
+
+
+
+
+
+</section>
+
+
+    <div class="hero-card" style="margin-top:20px; line-height:1.6;">
+     <p style="color:#000000">
+       At <strong>Plan My Event</strong>, we believe that great celebrations shouldn’t come at the cost of our planet.
+       We are a dedicated <em>sustainable event planning platform for colleges</em>, designed to help student
+       communities organize eco-friendly, cost-effective, and memorable events.
+     </p>
+      <h3 style="color:#2e7d32;">🎯 Our Mission</h3>
+     <p style="color:#000000">
+       To empower colleges and student organizations to host events that are not only fun and engaging but
+       also mindful of the environment. We strive to create a culture where sustainability is celebrated
+       alongside creativity, teamwork, and innovation.
+     </p>
+      <h3 style="color:#2e7d32;">🌱 What We Do</h3>
+     <ul style="color:#000000">
+       <li><strong>Eco-Conscious Event Planning</strong> – From cultural festivals and fests to seminars and workshops, we help design events that reduce waste and conserve energy.</li>
+       <li><strong>Resource Optimization</strong> – We encourage reusing, recycling, and choosing sustainable alternatives like digital invites, biodegradable decorations, and plastic-free catering.</li>
+       <li><strong>Student-Friendly Approach</strong> – Our platform is simple, practical, and tailored for young organizers who want to balance creativity with responsibility.
+       </li>
+     </ul>
+      <h3 style="color:#2e7d32;">💡 Why Choose Us?</h3>
+     <ul style="color:#000000">
+       <li>We understand the <em>pulse of college life</em> and the importance of budget-friendly solutions.</li>
+       <li>We are passionate about building awareness of sustainability in every small step—whether it’s reducing paper waste, managing electricity usage, or creating recycling stations at events.</li>
+       <li>Every event you plan with us contributes to a <strong>larger movement for a greener future</strong>.</li>
+     </ul>
+      <h3 style="color:#2e7d32;">🌍 Our Vision</h3>
+     <p style="color:#000000">
+       We envision a future where every campus event—big or small—becomes an opportunity to practice sustainability,
+       inspire eco-consciousness, and make students proud contributors to a better tomorrow.
+     </p>
+   </div>
+ </main>
+  <footer class="container">
+   <div style="display:flex;justify-content:space-between;align-items:center;">
+     <div>© Plan My Event</div>
+   </div>
+   <!-- Eco-Friendly Highlight Section -->
+<!-- Eco-Friendly Highlight Section -->
+<section style="margin-top:60px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:30px;max-width:1200px;margin-left:auto;margin-right:auto;padding:20px;">
+  <!-- Left: Image -->
+ <div style="flex:1;min-width:280px;text-align:center;">
+   <img src="images/plant.jpeg" alt="Eco-Friendly Illustration" style="max-width:100%;height:auto;border-radius:12px;">
+ </div>
+
+
+ <!-- Right: Text -->
+ <div style="flex:1;min-width:280px;">
+   <h3 style="color:#2e7d32;">🌿 Why Plan My Event is Eco-Friendly</h3>
+   <ul style="color:#000000;line-height:1.6;padding-left:20px;">
+     <li>Digital invites reduce paper waste with reusable materials.</li>
+     <li>Outdoor venues minimize energy usage and carbon footprint.</li>
+     <li>Our platform tracks sustainability goals every step of the event.</li>
+     <li>Students lead with purpose—every event is a green step forward.</li>
+   </ul>
+ </div>
+ <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(221px,1fr));gap:70px;max-width:1224px;margin:0 auto;">
+
+
+     <!-- Contact Info -->
+     <div>
+       <h4>📍 Contact Us</h4>
+       <p style="color:#555;line-height:1.6;">
+         <strong>Plan My Event</strong><br>
+         planmyevent@gmail.com<br>
+       </p>
+     </div>
+
+
+     <!-- Our Company -->
+     <div>
+       <h4>🏢 Our Company</h4>
+       <ul>
+         <li><a href="about.html">About Us</a></li>
+       </ul>
+     </div>
+
+
+     <!-- Resources -->
+     <div>
+       <h4>📚 Resources</h4>
+       <ul>
+         <li><a href="events.html">Live Events</a></li>
+       </ul>
+     </div>
+
+
+     <!-- Call to Action -->
+     <div>
+       <h4>📣 Let's Connect</h4>
+       <p style="color:#555;">Ready to plan your next sustainable event?</p>
+       <a href="contact.html" style="display:inline-block;margin-top:10px;padding:10px 20px;background:#2f855a;color:white;border-radius:8px;text-decoration:none;font-weight:600;">Contact Us Today!</a>
+     </div>
+   </div>
+
+
+   <!-- Bottom Bar -->
+   <div style="margin-top:40px;text-align:center;font-size:0.9rem;color:#777;">
+     <p>© <strong>Plan My Event</strong> — All Rights Reserved</p>
+     <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+     <p>Follow us: Facebook | Twitter | LinkedIn | Instagram</p>
+   </div>
+
+
+
+
+</section>
+
+
+ </footer>
+</body>
+</html>
+

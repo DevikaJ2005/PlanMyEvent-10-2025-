@@ -1,0 +1,245 @@
+<!--create.html-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Create Event — Plan My Event</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head> 
+<body>
+  <header class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;">
+      <div class="site-brand" style="display:flex;align-items:center;gap:10px;">
+        <img src="images/logo.jpg" alt="Plan My Event Logo" style="height:50px;width:auto;">
+        <div style="font-size:20px;font-weight:600;color:#2f855a;">Plan My Event</div>
+      </div>
+      <nav class="site-nav" aria-label="Main navigation" style="display:flex;gap:20px;">
+        <a href="index.html">Home</a>
+        <a href="create.html">Organise Event</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="logout.html">Logout</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding:26px 0;">
+    <h2 style="text-align:center;color:#2f855a;margin-top:30px;">Create A New Event</h2>
+
+    <div id="successMessage" style="display:none;background:#d4edda;color:#155724;padding:15px;border-radius:8px;margin:20px 0;text-align:center;">
+      Event created successfully! <a href="events.html" style="color:#155724;text-decoration:underline;">View upcoming events</a>
+    </div>
+
+    <div id="errorMessage" style="display:none;background:#f8d7da;color:#721c24;padding:15px;border-radius:8px;margin:20px 0;text-align:center;">
+      Failed to create event. Please try again.
+    </div>
+
+    <div id="duplicateMessage" style="display:none;background:#fff3cd;color:#856404;padding:15px;border-radius:8px;margin:20px 0;text-align:center;">
+      This event already exists. Please check the details or choose a different name/date.
+    </div>
+
+    <form id="createEventForm" class="card" aria-label="Create event form">
+      <div class="form-row col">
+        <div>
+          <label for="eventName">Event Name</label>
+          <input id="eventName" name="eventName" type="text" placeholder="e.g., Green Film Fest" required>
+        </div>
+
+        <div style="display:flex;gap:12px;margin-top:8px;">
+          <div style="flex:1;">
+            <label for="eventDate">Date</label>
+            <input id="eventDate" name="date" type="date" required>
+          </div>
+          <div style="width:160px;">
+            <label for="eventTime">Time</label>
+            <input id="eventTime" name="time" type="time" required>
+          </div>
+        </div>
+
+        <div style="margin-top:8px;">
+          <label for="eventVenue">Venue</label>
+          <input id="eventVenue" name="venue" type="text" placeholder="e.g., College Auditorium" required>
+        </div>
+
+        <div style="margin-top:8px;">
+          <label for="numParticipants">Number of Participants</label>
+          <input id="numParticipants" name="numParticipants" type="number" placeholder="e.g., 100" min="1" max="500" required>
+          <small style="color:#555;">(Allowed range: 1–500 participants)</small>
+        </div>
+
+        <div style="margin-top:8px;">
+          <label for="eventDesc">Description</label>
+          <textarea id="eventDesc" name="description" placeholder="Short description for attendees" required></textarea>
+        </div>
+
+        <div style="margin-top:8px;">
+          <label>Sustainability Checklist</label>
+          <div class="checklist">
+            <label><input type="checkbox" name="sustainability[]" value="reusable_materials"> Use reusable materials</label>
+            <label><input type="checkbox" name="sustainability[]" value="go_paperless"> Go paperless (digital tickets/posters)</label>
+            <label><input type="checkbox" name="sustainability[]" value="energy_efficient"> Energy-efficient equipment / LED lighting</label>
+            <label><input type="checkbox" name="sustainability[]" value="local_suppliers"> Use local / low-transport suppliers</label>
+          </div>
+        </div>
+
+        <div style="margin-top:12px; display:flex; gap:12px;">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <a href="events.html" class="btn btn-ghost" style="line-height:1.9;">View upcoming</a>
+        </div>
+      </div>
+    </form>
+  </main>
+
+  <!-- Footer -->
+ <footer class="container">
+   <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;">
+    
+   </div>
+   <footer>
+   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(221px,1fr));gap:70px;max-width:1224px;margin:0 auto;">
+
+
+     <!-- Contact Info -->
+     <div>
+       <h4>📍 Contact Us</h4>
+       <p style="color:#555;line-height:1.6;">
+         <strong>Plan My Event</strong><br>
+         planmyevent@gmail.com<br>
+       </p>
+     </div>
+
+
+     <!-- Our Company -->
+     <div>
+       <h4>🏢 Our Company</h4>
+       <ul>
+         <li><a href="about.html">About Us</a></li>
+       </ul>
+     </div>
+
+
+     <!-- Resources -->
+     <div>
+       <h4>📚 Resources</h4>
+       <ul>
+         <li><a href="events.html">Live Events</a></li>
+       </ul>
+     </div>
+
+
+     <!-- Call to Action -->
+     <div>
+       <h4>📣 Let's Connect</h4>
+       <p style="color:#555;">Ready to plan your next sustainable event?</p>
+       <a href="contact.html" style="display:inline-block;margin-top:10px;padding:10px 20px;background:#2f855a;color:white;border-radius:8px;text-decoration:none;font-weight:600;">Contact Us Today!</a>
+     </div>
+   </div>
+
+
+   <!-- Bottom Bar -->
+   <div style="margin-top:40px;text-align:center;font-size:0.9rem;color:#777;">
+     <p>© <strong>Plan My Event</strong> — All Rights Reserved</p>
+     <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+     <p>Follow us: Facebook | Twitter | LinkedIn | Instagram</p>
+   </div>
+ </footer>
+  <script>
+    function setMinDate() {
+      const today = new Date();
+      const dd = String(today.getDate()).padStart(2, '0');
+      const mm = String(today.getMonth() + 1).padStart(2, '0');
+      const yyyy = today.getFullYear();
+      const minDate = yyyy + '-' + mm + '-' + dd;
+      document.getElementById('eventDate').setAttribute('min', minDate);
+    }
+
+    function validateDateTime() {
+      const selectedDate = document.getElementById('eventDate').value;
+      const selectedTime = document.getElementById('eventTime').value;
+      if (!selectedDate || !selectedTime) return true;
+      const today = new Date();
+      const selected = new Date(selectedDate + 'T' + selectedTime);
+      if (selected <= today) {
+        alert('Please select a future date and time for the event.');
+        return false;
+      }
+      return true;
+    }
+
+    setMinDate();
+    document.getElementById('eventDate').addEventListener('change', validateDateTime);
+    document.getElementById('eventTime').addEventListener('change', validateDateTime);
+
+    document.getElementById('createEventForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!validateDateTime()) return;
+
+      const numParticipants = parseInt(document.getElementById('numParticipants').value);
+      if (numParticipants < 1 || numParticipants > 500 || isNaN(numParticipants)) {
+        alert('Please enter a valid number of participants between 1 and 500.');
+        return;
+      }
+
+      const formData = new FormData(e.target);
+      const data = {
+        eventName: formData.get('eventName'),
+        date: formData.get('date'),
+        time: formData.get('time'),
+        venue: formData.get('venue'),
+        description: formData.get('description'),
+        numParticipants: numParticipants,
+        'sustainability[]': formData.getAll('sustainability[]')
+      };
+
+      // Check for duplicate event
+      try {
+        const checkRes = await fetch('/api/events/check-duplicate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ eventName: data.eventName, date: data.date, venue: data.venue })
+        });
+        const checkResult = await checkRes.json();
+        if (checkResult.exists) {
+          document.getElementById('duplicateMessage').style.display = 'block';
+          document.getElementById('errorMessage').style.display = 'none';
+          document.getElementById('successMessage').style.display = 'none';
+          return;
+        } else {
+          document.getElementById('duplicateMessage').style.display = 'none';
+        }
+      } catch (error) {
+        console.error('Duplicate check failed:', error);
+      }
+
+      // Proceed to create event
+      try {
+        const response = await fetch('/api/events', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        const result = await response.json();
+        if (result.success) {
+          document.getElementById('successMessage').style.display = 'block';
+          document.getElementById('errorMessage').style.display = 'none';
+          e.target.reset();
+          setMinDate();
+          document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+          setTimeout(() => {
+            window.location.href = 'index.html';
+          }, 2000);
+        } else {
+          document.getElementById('errorMessage').style.display = 'block';
+          document.getElementById('successMessage').style.display = 'none';
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        document.getElementById('errorMessage').style.display = 'block';
+        document.getElementById('successMessage').style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

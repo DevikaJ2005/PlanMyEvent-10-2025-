@@ -1,0 +1,180 @@
+/* css/styles.css - shared across all pages */
+:root{
+  --bg: #f6f8f7;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #2f855a;      /* soft green */
+  --accent-2: #88c498;    /* lighter */
+  --radius: 12px;
+  --max-width: 1100px;
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+*{box-sizing: border-box}
+html,body{
+  height:100%;
+  margin:0;
+  background:var(--bg);
+  color:#0f172a;
+  line-height:1.45;
+  font-size:16px;
+}
+
+.container{
+  width:90%;
+  max-width:var(--max-width);
+  margin:0 auto;
+}
+
+/* Header / nav */
+header{
+  background: transparent;
+  padding:18px 0;
+  position:sticky;
+  top:0;
+  z-index:50;
+  backdrop-filter: blur(6px);
+}
+.site-brand{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  font-weight:600;
+  letter-spacing:0.2px;
+}
+.logo{
+  width:46px;
+  height:46px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  color:white;
+  border-radius:10px;
+  font-weight:700;
+  box-shadow: 0 6px 18px rgba(47,133,90,0.14);
+}
+nav.site-nav{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+nav.site-nav a{
+  text-decoration:none;
+  color:var(--muted);
+  padding:8px 10px;
+  border-radius:8px;
+  font-weight:500;
+}
+nav.site-nav a:hover{
+  color:var(--accent);
+  background: rgba(47,133,90,0.06);
+  transform: translateY(-1px);
+}
+
+/* Landing hero */
+.hero{
+  padding:48px 0 36px;
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:24px;
+  align-items:center;
+}
+.hero-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.75));
+  border-radius: var(--radius);
+  padding:28px;
+  box-shadow: 0 10px 30px rgba(15,23,42,0.06);
+}
+
+/* Buttons */
+.btn{
+  display:inline-block;
+  padding:10px 16px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:600;
+  border: none;
+  cursor:pointer;
+}
+.btn-primary{
+  background:var(--accent);
+  color:white;
+  box-shadow: 0 8px 22px rgba(47,133,90,0.14);
+}
+.btn-ghost{
+  background: transparent;
+  color:var(--accent);
+  border: 1px solid rgba(47,133,90,0.12);
+}
+
+/* Form styles */
+form.card{
+  background:var(--card);
+  padding:20px;
+  border-radius:12px;
+  box-shadow: 0 8px 24px rgba(12,18,30,0.04);
+}
+.form-row{display:flex; gap:12px; margin-bottom:12px;}
+.form-row.col{flex-direction:column}
+label{font-size:14px; color:var(--muted); margin-bottom:6px; display:block;}
+input[type="text"], input[type="date"], input[type="time"], input[type="email"], textarea, select{
+  width:100%;
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid #e6e9ec;
+  background:#fbfcfd;
+  font-size:15px;
+}
+textarea{min-height:110px; resize:vertical;}
+
+/* Checkbox group */
+.checklist{display:flex; flex-direction:column; gap:8px;}
+.checklist label{display:flex; align-items:center; gap:10px; cursor:pointer; color:#213547; font-weight:500;}
+.checklist input[type="checkbox"]{width:18px; height:18px; accent-color: var(--accent);}
+
+/* Events card grid */
+.events-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:18px;
+}
+.event-card{
+  background:var(--card);
+  border-radius:12px;
+  padding:16px;
+  box-shadow: 0 8px 20px rgba(12,18,30,0.04);
+}
+.event-meta{font-size:13px; color:var(--muted); margin-bottom:8px}
+.event-title{font-size:18px; margin:0 0 6px 0}
+
+/* Footer */
+footer{
+  padding:24px 0;
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* Responsive */
+@media (max-width: 880px){
+  .events-grid{ grid-template-columns: repeat(2,1fr); }
+  .form-row{flex-direction:column}
+}
+@media (max-width: 560px){
+  .events-grid{ grid-template-columns: 1fr; }
+  .hero{padding:28px 0;}
+  nav.site-nav{display:none} /* simple mobile menu choice: hide for now - beginner friendly */
+}
+.status {
+  font-weight: bold;
+  color: #2f855a; /* green for approved */
+}
+
+.status.pending {
+  color: #d4a017; /* yellow for pending */
+}
+
+.status.rejected {
+  color: #c53030; /* red for rejected */
+}

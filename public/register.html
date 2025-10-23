@@ -1,0 +1,206 @@
+<!--register.html-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Register for Event — Plan My Event</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .form-box {
+      max-width: 500px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    .form-box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2f855a;
+    }
+    .form-box label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 6px;
+      margin-top: 12px;
+    }
+    .form-box input,
+    .form-box textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    .form-box button {
+      margin-top: 20px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <div class="site-brand" style="display:flex;align-items:center;gap:10px;">
+        <img src="images/logo.jpg" alt="Plan My Event Logo" style="height:50px;width:auto;">
+        <div style="font-size:20px;font-weight:600;color:#2f855a;">
+          Plan My Event
+        </div>
+      </div>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="events.html">Upcoming Events</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="logout.html">Logout</a>
+
+      </nav>
+    </div>
+  </header>
+
+  <!-- Registration Form -->
+  <main class="container">
+    <div class="form-box">
+      <h2 style="text-align:center;color:#2f855a;margin-top:30px;">Register</h2>
+      <form id="registrationForm" action="/api/register" method="POST">
+        <label for="eventName">Event Name</label>
+        <input type="text" id="eventName" name="eventName" readonly>
+
+        <label for="studentName">Your Name</label>
+        <input type="text" id="studentName" name="studentName" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="college">College Name</label>
+        <input type="text" id="college" name="college" required>
+
+        <label for="year">Year of Study</label>
+        <input type="text" id="year" name="year" required>
+
+        <label for="message">Message (optional)</label>
+        <textarea id="message" name="message"></textarea>
+
+        <button type="submit" class="btn btn-primary">Register</button>
+      </form>
+    </div>
+  </main>
+  <!-- Footer -->
+ <footer class="container">
+   <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;">
+    
+   </div>
+   <footer>
+   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(221px,1fr));gap:70px;max-width:1224px;margin:0 auto;">
+
+
+     <!-- Contact Info -->
+     <div>
+       <h4>📍 Contact Us</h4>
+       <p style="color:#555;line-height:1.6;">
+         <strong>Plan My Event</strong><br>
+         planmyevent@gmail.com<br>
+       </p>
+     </div>
+
+
+     <!-- Our Company -->
+     <div>
+       <h4>🏢 Our Company</h4>
+       <ul>
+         <li><a href="about.html">About Us</a></li>
+       </ul>
+     </div>
+
+
+     <!-- Resources -->
+     <div>
+       <h4>📚 Resources</h4>
+       <ul>
+         <li><a href="events.html">Live Events</a></li>
+       </ul>
+     </div>
+
+
+     <!-- Call to Action -->
+     <div>
+       <h4>📣 Let's Connect</h4>
+       <p style="color:#555;">Ready to plan your next sustainable event?</p>
+       <a href="contact.html" style="display:inline-block;margin-top:10px;padding:10px 20px;background:#2f855a;color:white;border-radius:8px;text-decoration:none;font-weight:600;">Contact Us Today!</a>
+     </div>
+   </div>
+
+
+   <!-- Bottom Bar -->
+   <div style="margin-top:40px;text-align:center;font-size:0.9rem;color:#777;">
+     <p>© <strong>Plan My Event</strong> — All Rights Reserved</p>
+     <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+     <p>Follow us: Facebook | Twitter | LinkedIn | Instagram</p>
+   </div>
+ </footer>
+
+  <!-- Auto-fill Event Name -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    if(params.has("event")) {
+      document.getElementById("eventName").value = params.get("event");
+    }
+  </script>
+
+  <!-- Duplication Check Script -->
+  <script>
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const eventName = document.getElementById('eventName').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      if (!eventName || !email) {
+        alert("Event name and email are required.");
+        return;
+      }
+
+      fetch(`/api/check-duplicate?event=${encodeURIComponent(eventName)}&email=${encodeURIComponent(email)}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.exists) {
+            alert("You have already registered for this event!");
+          } else {
+            e.target.submit();
+          }
+        })
+        .catch(err => {
+          console.error("Error checking duplication", err);
+          alert("Error checking registration. Please try again later.");
+        });
+    });
+  </script>
+  <script>
+  async function fillUserEmail() {
+    try {
+      const res = await fetch('/api/me');
+      if (!res.ok) return;
+      const data = await res.json();
+      if (data && data.success && data.email) {
+        const emailField = document.getElementById('email');
+        if (emailField) {
+          emailField.value = data.email;
+          emailField.readOnly = true; // lock it
+          emailField.style.backgroundColor = '#f3f3f3';
+        }
+      }
+    } catch (err) {
+      console.error('Could not fetch user info:', err);
+    }
+  }
+
+  fillUserEmail();
+</script>
+
+</body>
+</html>
+
